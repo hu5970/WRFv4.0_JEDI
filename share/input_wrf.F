@@ -117,10 +117,10 @@
 !
 !</DESCRIPTION>
 
-    WRITE(wrf_err_message,*)'input_wrf: begin'
+    WRITE(wrf_err_message,*)'input_wrf: begin',grid%id
     CALL wrf_debug( 300 , wrf_err_message )
 
-    CALL modify_io_masks ( grid%id )   ! this adjusts the I/O masks according to the users run-time specs, if any
+    CALL modify_io_masks ( grid )   ! this adjusts the I/O masks according to the users run-time specs, if any
 
     !  Initializations for error checking
 

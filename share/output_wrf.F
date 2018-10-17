@@ -104,7 +104,7 @@
     WRITE(wrf_err_message,*)'output_wrf: begin, fid = ',fid
     CALL wrf_debug( 300 , wrf_err_message )
 
-    CALL modify_io_masks ( grid%id )   ! this adjusts the I/O masks according to the users run-time specs, if any
+    CALL modify_io_masks ( grid )   ! this adjusts the I/O masks according to the users run-time specs, if any
 
     CALL wrf_inquire_filename ( fid , fname , filestate , ierr )
     IF ( ierr /= 0 ) THEN
@@ -1576,9 +1576,9 @@ endif
     character*(*)s
     integer l, itrace
     TYPE( fieldlist ), POINTER :: p
-    p => head_grid%head_statevars%next
+!mhu    p => head_grid%head_statevars%next
 !    write(0,*)'traverse_statevars_debug called ',TRIM(s),' ',l
-    DO WHILE ( ASSOCIATED( p ) )
+!mhu    DO WHILE ( ASSOCIATED( p ) )
 !      IF ( p%Ndim .EQ. 4 .AND. p%scalar_array ) THEN
 !         DO itrace = PARAM_FIRST_SCALAR , p%num_table(1)
 !write(0,*)TRIM(s),l, itrace, p%streams_table(1,itrace)%stream
@@ -1587,8 +1587,8 @@ endif
 !      if ( TRIM(p%VarName) .EQ. 'store_rand' .OR. TRIM(p%VarName) .EQ. 'STORE_RAND' ) then
 !        write(0,*)'traverse_statevars_debug sees ',TRIM(p%VarName),' >',p%Type,'<'
 !      endif
-      p => p%next
-    ENDDO
+!mhu      p => p%next
+!mhu    ENDDO
     RETURN
   END SUBROUTINE traverse_statevars_debug
 
