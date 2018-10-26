@@ -11268,7 +11268,7 @@ IMPLICIT NONE
       ENDIF
 
       IF ( wrf_dm_on_monitor() ) THEN
-        OPEN(rrtmg_unit,FILE='RRTMG_SW_DATA',                  &
+        OPEN(rrtmg_unit,FILE='RRTMG_SW_DATA',convert='big_endian',  &
              FORM='UNFORMATTED',STATUS='OLD',ERR=9009)
       ENDIF
 

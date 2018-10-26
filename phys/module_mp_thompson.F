@@ -3572,7 +3572,7 @@
         INQUIRE(FILE="qr_acr_qg.dat",EXIST=lexist)
         IF ( lexist ) THEN
           CALL wrf_message("ThompMP: read qr_acr_qg.dat instead of computing")
-          OPEN(63,file="qr_acr_qg.dat",form="unformatted",err=1234)
+          OPEN(63,file="qr_acr_qg.dat",form="unformatted",convert='big_endian',err=1234)
           READ(63,err=1234) tcg_racg
           READ(63,err=1234) tmr_racg
           READ(63,err=1234) tcr_gacr
@@ -3763,7 +3763,7 @@
         INQUIRE(FILE="qr_acr_qs.dat",EXIST=lexist)
         IF ( lexist ) THEN
           CALL wrf_message("ThompMP: read qr_acr_qs.dat instead of computing")
-          OPEN(63,file="qr_acr_qs.dat",form="unformatted",err=1234)
+          OPEN(63,file="qr_acr_qs.dat",form="unformatted",convert='big_endian',err=1234)
           READ(63,err=1234)tcs_racs1
           READ(63,err=1234)tmr_racs1
           READ(63,err=1234)tcs_racs2
@@ -4050,7 +4050,7 @@
         INQUIRE(FILE="freezeH2O.dat",EXIST=lexist)
         IF ( lexist ) THEN
           CALL wrf_message("ThompMP: read freezeH2O.dat instead of computing")
-          OPEN(63,file="freezeH2O.dat",form="unformatted",err=1234)
+          OPEN(63,file="freezeH2O.dat",form="unformatted",convert='big_endian',err=1234)
           READ(63,err=1234)tpi_qrfz
           READ(63,err=1234)tni_qrfz
           READ(63,err=1234)tpg_qrfz
